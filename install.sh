@@ -25,6 +25,8 @@ mkdir -p /home/$username/Pictures/backgrounds
 cp -R dotconfig/* /home/$username/.config/
 cp bg.jpg /home/$username/Pictures/backgrounds/
 mv user-dirs.dirs /home/$username/.config
+echo "exec dwm" >/home/$username/.xsession
+
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs
