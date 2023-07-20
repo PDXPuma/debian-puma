@@ -40,7 +40,7 @@ git clone https://github.com/EliverLara/Nordic.git
 
 # Installing fonts
 cd $builddir
-nala install fonts-font-awesome
+nala install fonts-font-awesome -y
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
 unzip FiraCode.zip -d /home/$username/.fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
@@ -83,6 +83,29 @@ make install
 cd $builddir
 rmdir dwm-jeremy
 
+# TODO sound
+
+# TODO flatpak and enable
+nala install flatpak -y
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+# TODO neovim
+
+# TODO vscode
+
+# TODO ghcli
+type -p curl >/dev/null || (nala update && nala install curl -y)
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg &&
+	chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg &&
+	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
+	nala update &&
+	nala install gh -y
+
+# TODO distrobox
+#
+
 # Enable graphical login and change target from CLI to GUI
 systemctl enable lightdm
 systemctl set-default graphical.target
+
+echo "Reboot to enter the new system"
