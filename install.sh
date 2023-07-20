@@ -65,6 +65,22 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 nala update
 nala install brave-browser -y
 
+# Install dmenu-distrotube
+git clone https://gitlab.com/dwt1/dmenu-distrotube
+cd dmenu-distrotube
+make install
+cd $builddir
+rmdir dmenu-distrotube
+
+# Install dwm-jeremy
+nala install libimlib2-dev libx11-xcb-dev libxcb-res0-dev -y
+
+git clone https://github.com/pdxpuma/dwm-jeremy
+cd dwm-jeremy
+make install
+cd $builddir
+rmdir dwm-jeremy
+
 # Enable graphical login and change target from CLI to GUI
 systemctl enable lightdm
 systemctl set-default graphical.target
