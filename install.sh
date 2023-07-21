@@ -46,6 +46,7 @@ unzip FiraCode.zip -d /home/$username/.fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
 unzip Meslo.zip -d /home/$username/.fonts
 mv dotfonts/fontawesome/otfs/*.otf /home/$username/.fonts/
+git clone https://github.com/LazyVim/starter ~/.config/nvim
 chown $username:$username /home/$username/.fonts/*
 
 # Reloading Font
@@ -89,7 +90,13 @@ rmdir dwm-jeremy
 nala install flatpak -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-# TODO neovim
+# TODO neovim + lazynvim
+nala install ninja-build gettext cmake unzip curl ripgrep fd-find npm nodejs -y
+git clone https://github.com/neovim/neovim
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+make install
+cd $builddir
+rmdir neovim
 
 # TODO vscode
 
