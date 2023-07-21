@@ -46,7 +46,7 @@ unzip FiraCode.zip -d /home/$username/.fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
 unzip Meslo.zip -d /home/$username/.fonts
 mv dotfonts/fontawesome/otfs/*.otf /home/$username/.fonts/
-git clone https://github.com/LazyVim/starter ~/.config/nvim
+git clone https://github.com/LazyVim/starter /home/$username/.config/nvim
 chown $username:$username /home/$username/.fonts/*
 
 # Reloading Font
